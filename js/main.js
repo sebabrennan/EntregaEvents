@@ -32,7 +32,7 @@ const boton1 = document.getElementById("Productos");
     });
 
 const boton2 = document.getElementById("Usuarios");
-    boton1.addEventListener("click", ()=>{
+    boton2.addEventListener("click", ()=>{
         mostrarMenuUsuarios();
     });
 
