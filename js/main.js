@@ -37,20 +37,31 @@ const boton2 = document.getElementById("Usuarios");
     });
 
 function mostrarMenuProductos(){
+
+    const btnFideos = document.createElement("button");
+    const btnSorrentinos= document.createElement("button");
+    const btnPanzottis = document.createElement("button");
+
+    btnFideos.innerText= `FIDEOS (${fideos.precio}ARS)`;
+    btnSorrentinos.innerText= `SORRENTINOS (${sorrentinos.precio}ARS)`;
+    btnPanzottis.innerText= `PANZOTIS (${panzottis.precio}ARS)`;
     
-    const opcion = prompt(`Seleccione una opcion: 
-                     1. FIDEOS (${fideos.precio}ARS)
-                     2. SORRENTINOS (${sorrentinos.precio}ARS)
-                     3. PANZOTIS (${panzottis.precio}ARS)
-                     4. FIN`);
-    
-    if(opcion!=4){   
-        venderProducto(opcion);
-    }
-    
-    else{
-        alert("GRACIAS");
-    }
+    document.body.appendChild(btnFideos);
+    document.body.appendChild(btnSorrentinos);
+    document.body.appendChild(btnPanzottis);
+
+    btnFideos.addEventListener("click", ()=>{
+        venderProducto(1);
+    });
+
+    btnSorrentinos.addEventListener("click", ()=>{
+        venderProducto(2);
+    });
+
+    btnPanzottis.addEventListener("click", ()=>{
+        venderProducto(3);
+    });
+
 }
 
 function venderProducto(opcion){
@@ -86,7 +97,6 @@ function resetVars() {
 function mostrarMenuUsuarios()
 {
     let opcion = 0;
-   
     while(opcion!==6)
     {
         opcion = Number( prompt(`Seleccione una acción:
