@@ -70,17 +70,23 @@ function venderProducto(opcion){
 
 function pedirDinero(priceProduct){
 
-    dineroIngresado = document.createElement ("div")
-    dineroIngresado.innerHTML = `<b>¿Con cuanto va a pagar?</b>
-                        <input type=text>`
-      
-    if(dineroIngresado<priceProduct){
+    const dineroIngresado = document.createElement ("div")
+    dineroIngresado.innerHTML = `<label>¿Con cuanto va a pagar?</label>
+                        <input type=text id=dineroIngresado>
+                        <button id=btnDineroIngresado>Enviar</button>`
+    document.body.appendChild(dineroIngresado)
+    const boton = document.getElementById ("btnDineroIngresado");
+    boton.addEventListener("click", () => {
+        mostrarCambio(document.getElementById("dineroIngresado").value, priceProduct)
+    })
+    
+    /* if(dineroIngresado<priceProduct){
         alert("monto invalido")
     }
 
     else{
         mostrarCambio(dineroIngresado, priceProduct);
-    }
+    } */
 }
    
 function mostrarCambio(dineroIngresado, priceProduct) {
