@@ -68,26 +68,26 @@ function venderProducto(opcion){
     pedirDinero(productos[opcion-1].precio)
 }
 
-function pedirDinero(priceProduct)
-{
-   while (dineroIngresado<priceProduct)
-   {
-      let dinero = Number(prompt("¿Con cuanto va a pagar?"));
-            
-         if(dinero<priceProduct)
-         {
-            alert("monto invalido")
-         }
-         else
-         {
-            dineroIngresado+=dinero;
-         }
-   }
-         
-   let cambio = dineroIngresado - priceProduct;
-      alert("Su cambio es: " + cambio);
-      alert("Gracias");
-      resetVars();
+function pedirDinero(priceProduct){
+
+    dineroIngresado = document.createElement ("div")
+    dineroIngresado.innerHTML = `<b>¿Con cuanto va a pagar?</b>
+                        <input type=text>`
+      
+    if(dineroIngresado<priceProduct){
+        alert("monto invalido")
+    }
+
+    else{
+        mostrarCambio(dineroIngresado, priceProduct);
+    }
+}
+   
+function mostrarCambio(dineroIngresado, priceProduct) {
+    let cambio = dineroIngresado - priceProduct;
+    alert("Su cambio es: " + cambio);
+    alert("Gracias");
+    resetVars();
 }
 
 function resetVars() {
