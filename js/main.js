@@ -51,15 +51,18 @@ function mostrarMenuProductos(){
     document.body.appendChild(btnPanzottis);
 
     btnFideos.addEventListener("click", ()=>{
-        venderProducto(1);
+        venderProducto(1)
+        sessionStorage.setItem (fideos.nombre,fideos.precio);
     });
 
     btnSorrentinos.addEventListener("click", ()=>{
-        venderProducto(2);
+        venderProducto(2)
+        sessionStorage.setItem (sorrentinos.nombre, sorrentinos.precio);
     });
 
     btnPanzottis.addEventListener("click", ()=>{
-        venderProducto(3);
+        venderProducto(3)
+        sessionStorage.setItem (panzottis.nombre, panzottis.precio);
     });
 
 }
@@ -93,6 +96,13 @@ function mostrarCambio(dineroIngresado, priceProduct) {
     let cambio = dineroIngresado - priceProduct;
     alert("Su cambio es: " + cambio);
     alert("Gracias");
+ /*    
+    const resumen = document.createElement("div");
+    resumen.innerHTML = `<h4>Resumen del pedido:</h4>
+                            <p>${sessionStorage.getItem(key, value)}</p>`
+    document.body.appendChild(resumen)
+     */
+    
     resetVars();
 }
 
